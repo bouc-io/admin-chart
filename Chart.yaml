@@ -1,0 +1,7 @@
+apiVersion: v2
+name: admin-chart
+description: A Helm chart to install the monochrome-admin-ui on Kubernetes
+type: application
+version: 0.1.1
+
+appVersion: "1.0.0"
