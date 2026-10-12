@@ -1,0 +1,15 @@
+environment:
+  VITE_IDENTITY_PROVIDER: "keycloak"
+  VITE_SSO_SERVER_URL: "https://sso.${CLUSTER_DOMAIN}"
+  VITE_OAUTH_REALM: "users"
+  VITE_OAUTH_CLIENT_ID: "admin-ui"
+  VITE_API_URL: "https://api.${CLUSTER_DOMAIN}"
+  VITE_OLLAMA_API_URL: "https://api.${CLUSTER_DOMAIN}/ollama"
+  VITE_AVAILABLE_MODELS:
+    - id: "qwen3.5:2b"
+      name: "Qwen3 4b"
+      description: "Lightweight model with thinking levels"
+
+auth:
+  issuer: "https://sso.${CLUSTER_DOMAIN}/realms/users"
+  jwksUri: "https://sso.${CLUSTER_DOMAIN}/realms/users/protocol/openid-connect/certs"
