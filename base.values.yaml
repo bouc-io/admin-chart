@@ -1,0 +1,76 @@
+replicaCount: 1
+
+image:
+  registry: ghcr.io/bouc-io
+  repository: application/admin/admin-mirror-ui
+  pullPolicy: IfNotPresent
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+pdb:
+  create: true
+  minAvailable: "0%"
+  maxUnavailable: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+livenessProbe: {}
+readinessProbe: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+volumes: []
+volumeMounts: []
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+environment:
+  VITE_IDENTITY_PROVIDER: ""
+  VITE_SSO_SERVER_URL: ""
+  VITE_OAUTH_REALM: ""
+  VITE_OAUTH_CLIENT_ID: ""
+  VITE_API_URL: ""
+  VITE_OLLAMA_API_URL: ""
+  VITE_AVAILABLE_MODELS: []
+
+auth:
+  issuer: ""
+  jwksUri: ""
